@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class=panel-heading>Liste des clients</div>
+        <div class="panel-body">
+            <table *ngIf="customers" class="table table-stripped">
+                <tr>
+                    <th>ID</th><th>Nom du Client</th><th>Post Nom</th>
+                </tr>
+                <tr *ngFor="let cust of customers">
+                    <td>{{cust.customerNumber}}</td>
+                    <td>{{cust.customerName}}</td>
+                    <td>{{cust.contactLastName}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
