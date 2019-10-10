@@ -2,16 +2,24 @@
     <div class="panel panel-primary">
         <div class=panel-heading>Liste des clients</div>
         <div class="panel-body">
-            <table *ngIf="customers" class="table table-stripped">
+            <button class="btn btn-primary" (click)="onClickCustomers()">Lancer</button>
+            <button class="btn btn-primary pull-right" (click)="onClickCustomerDelete()">Vider</button>
+        </div>
+        <div class="panel-body">
+            <table *ngIf="customers" class="table uk-table-striped">
                 <tr>
-                    <th>ID</th><th>Nom du Client</th><th>Post Nom</th>
+                    <th>Nom du Client</th><th>Post Nom</th>
                 </tr>
-                <tr *ngFor="let cust of customers">
-                    <td>{{cust.customerNumber}}</td>
+                <tr *ngFor="let cust of customers.customerses">
                     <td>{{cust.customerName}}</td>
                     <td>{{cust.contactLastName}}</td>
                 </tr>
             </table>
+            <ul *ngIf="pageArrayIndex" class="nav nav-pills">
+                <li *ngFor="let p of pageArrayIndex; let i=index">
+                    <a (click)="onCustomersPage(i)">{{i}}</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

@@ -2,7 +2,24 @@
     <div class="panel panel-primary">
         <div class=panel-heading>Liste d'employées</div>
         <div class="panel-body">
-
+            <button class="btn btn-primary" (click)="onClickEmployees()">Lancer</button>
+            <button class="btn btn-primary pull-right" (click)="onClickEmployeesDelete()">Vider</button>
+        </div>
+        <div class="panel-body">
+            <table *ngIf="employees" class="table uk-table-striped">
+                <tr>
+                    <th>Nom du Client</th><th>Post Nom</th>
+                </tr>
+                <tr *ngFor="let empl of employees.employeeses">
+                    <td>{{empl.lastName}}</td>
+                    <td>{{empl.firstName}}</td>
+                </tr>
+            </table>
+            <ul *ngIf="pageArrayIndex" class="nav nav-pills">
+                <li *ngFor="let p of pageArrayIndex; let i=index">
+                    <a (click)="onEmployeesPage(i)">{{i}}</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

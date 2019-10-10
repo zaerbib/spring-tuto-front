@@ -2,7 +2,24 @@
     <div class="panel panel-primary">
         <div class=panel-heading>Liste d'offices</div>
         <div class="panel-body">
-
+            <button class="btn btn-primary" (click)="onClickOffices()">Lancer</button>
+            <button class="btn btn-primary pull-right" (click)="onClickOfficesDelete()">Vider</button>
+        </div>
+        <div class="panel-body">
+            <table *ngIf="offices" class="table uk-table-striped">
+                <tr>
+                    <th>Ville</th><th>Numéro de téléphone</th>
+                </tr>
+                <tr *ngFor="let off of offices.officeses">
+                    <td>{{off.city}}</td>
+                    <td>{{off.phone}}</td>
+                </tr>
+            </table>
+            <ul *ngIf="pageArrayIndex" class="nav nav-pills">
+                <li *ngFor="let p of pageArrayIndex; let i=index">
+                    <a (click)="onOfficesPage(i)">{{i}}</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
